@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <!-- css only -->
+  <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+
+</head>
+<body class="">
+    <h1 class="text-center text-red bg-info">Complete Form Validation In JavaScript 2021</h1>
+    <div class="container">
+        
+        <div class="row">
+            <div class="col-md-4">
+    
+            </div>
+
+            <div class="col-md-4">
+                <form onsubmit="return Validation()">
+                    <div class="mb-3 form-group">
+                        <label for="user" class="font-weight-bold"> UserName:</label>
+                        <input type="text" name="user" class="form-control" id="user" autocomplete="off">
+                        <span id="username" class="text-danger font-weight-bold"></span>
+                    </div>
+
+                    <div class="mb-3 form-group">
+                        <label class="font-weight-bold"> Password:</label>
+                        <input type="text" name="pass" class="form-control" id="pass" autocomplete="off">
+                        <span id="password" class="text-danger font-weight-bold"></span>
+                    </div>
+
+                    <div class="mb-3 form-group">
+                        <label class="font-weight-bold"> Confirm Password:</label>
+                        <input type="text" name="conpass" class="form-control" id="conpass" autocomplete="off">
+                        <span id="confrmpass" class="text-danger font-weight-bold"></span>
+                    </div>
+
+                    <div class="mb-3 form-group">
+                        <label class="font-weight-bold"> Mobile Number:</label>
+                        <input type="text" name="mobile" class="form-control" id="mobileNumber" autocomplete="off">
+                        <span id="mobileno" class="text-danger font-weight-bold"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="exampleInputEmail"><b>Email Address</b></label>
+                        <input type="email" class="form-control" id="exampleInputEmail" aria-describedby="">
+                        <div id="emailHelp" class="form-text">we'll never share your email with anyone else.</div>
+                    </div>
+
+
+                        <input type="submit" name="submit" value="submit" class="btn btn-success" autocomplete="off">
+
+
+                </form><br><br>
+            </div>
+
+            <div class="col-md-4">
+        
+            </div>
+        </div> <!-- row end -->
+    </div> <!-- container end -->
+
+    <script type="text/javascript">
+
+       function Validation(){
+
+            var user = document.getElementById("user").value;
+
+
+            var mobileNumber = document.getElementById("mobileNumber").value;
+            var pass = document.getElementById("pass").value;
+            var conpass = document.getElementById("conpass").value;
+            var emails = document.getElementById("emails").value;
+
+
+
+            //if(user == ""){
+                //document.getElementById("username") .innerHTML = " ** Please fill the username field";
+                //return false;}
+
+            if(user.length <= 2) || (user.length > 20){
+                document.getElementById('username').innerHTML =" ** username length must be btween 2 and 20";
+                return false;
+            }
+            if (! isNoN(user)){
+                document.getElementById('username').innerHTML =" ** only characters are allowed";
+                return false;
+            }
+
+            //password
+            if(pass.length <= 8) || (pass.length > 20) {
+                document.getElementById('password').innerHTML =" ** username length must be btween 8 and 20";
+                return false;
+            }
+
+            if(pass!=conpass){
+                document.getElementById('password').innerHTML =" ** password does not match the confirm password";
+                return false;
+            }
+
+            if(isNoN(mobileNumber)){
+                document.getElementById('mobileno').innerHTML =" ** user must write digits only not characters";
+                return false;
+            }
+
+            if(mobileNumber.length!=10){
+                document.getElementById('mobileno').innerHTML =" ** mobile number must be 10 digit only";
+                return false;
+            }
+
+            if(emails == ""){
+                document.getElementById('emailids').innerHTML = " ** please fill the email id's field";
+                return false;
+            }
+
+            if((emails.charAt(emails.length-4)!='-') && (emails.charAt(emails.length-3)!='-')){
+                document.getElementById('emailids').innerHTML = " ** .invalid position"
+                return false;
+            }
+        }
+
+
+    </script>
+</body>
+</html>
